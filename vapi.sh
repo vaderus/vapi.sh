@@ -23,7 +23,7 @@ mv ~/.config/.zshrc ~/.zshrc
 echo "Do you want the script to enable Arch linux repos in pacman.conf?(yes/no)"
 read repo
 case $repo in
-	[yes]* ) $doas pacman -S --noconfirm artix-archlinux-support && $doas pacman-key --populate archlinux && ${doas} rm -f /etc/pacman.conf && ${doas} cp -r ~/artix-configs/desktop/pacman.conf /etc/pacman.conf
+	[yes]* ) $doas pacman -S --noconfirm artix-archlinux-support && $doas pacman-key --populate archlinux && ${doas} rm -f /etc/pacman.conf && ${doas} cp -r ~/artix-configs/desktop/pacman.conf /etc/pacman.conf;;
 	[no]* ) echo "ok, im not doing that" && sleep 2s;
 esac
 
