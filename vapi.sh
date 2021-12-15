@@ -19,10 +19,12 @@ Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf;;
 esac
 
 #criar pasta de wallpapers
-mkdir ~/media/img/wall/
+mkdir -p ~/media/img/wall/
 
 #install some packages
-${doas} pacman -Syu --needed git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot
+echo "installing desktop"
+sleep 3s
+${doas} pacman -Syu --needed git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot harfbuzz
 
 #git clone other packages
 git clone https://aur.archlinux.org/picom-ibhagwan-git.git /tmp/picom.git &
@@ -42,6 +44,9 @@ cp -r ~/artix-configs/desktop/.xinitrc ~/.xinitrc
 mv ~/.config/.vimrc ~/.vimrc
 mv ~/.config/.zshrc ~/.zshrc
 
+#making st and dmenu
+echo "making st and dmenu"
+sleep 3s
 ${doas} make clean install -C ~/.sources/st
 ${doas} make clean install -C ~/.sources/dmenu
 
