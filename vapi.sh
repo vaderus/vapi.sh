@@ -9,7 +9,7 @@ echo "usando ${doas} ..."
 echo "Do you want the script to enable Arch linux repos in pacman.conf?(yes/no)"
 read repo
 case $repo in
-	[yes]* ) $doas pacman -S artix-archlinux-support && $doas pacman-key --populate archlinux &&
+	[yes]* ) $doas pacman -S --noconfirm artix-archlinux-support && $doas pacman-key --populate archlinux &&
 $doas echo "
 [lib32]
 Include = /etc/pacman.d/mirrorlist
@@ -22,9 +22,7 @@ esac
 mkdir -p ~/media/img/wall/
 
 #install some packages
-echo "installing desktop"
-sleep 3s
-${doas} pacman -Syu --needed git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot harfbuzz
+${doas} pacman -Syu --needed git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot harfbuzz &&
 
 #git clone other packages
 git clone https://aur.archlinux.org/picom-ibhagwan-git.git /tmp/picom.git &
@@ -45,8 +43,6 @@ mv ~/.config/.vimrc ~/.vimrc
 mv ~/.config/.zshrc ~/.zshrc
 
 #making st and dmenu
-echo "making st and dmenu"
-sleep 3s
 ${doas} make clean install -C ~/.sources/st
 ${doas} make clean install -C ~/.sources/dmenu
 
