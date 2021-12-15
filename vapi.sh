@@ -22,7 +22,7 @@ esac
 mkdir -p ~/media/img/wall/
 
 #install some packages
-${doas} pacman -Syu --needed git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot harfbuzz &&
+${doas} pacman -Syu --needed --noconfirm git xorg-server xorg-xrandr xorg-xinit libx11 libxinerama ttf-hack bspwm polybar doas ranger sxhkd vim zsh xwallpaper pipewire pipewire-pulse pipewire-media-session xclip scrot harfbuzz &&
 
 #git clone other packages
 git clone https://aur.archlinux.org/picom-ibhagwan-git.git /tmp/picom.git &
